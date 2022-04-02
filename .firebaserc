@@ -1,0 +1,15 @@
+{
+  "projects": {},
+  "targets": {
+    "multi-clocks": {
+      "hosting": {
+        "development": [
+          "multi-clocks"
+        ],
+        "stage": [
+          "multi-clocks-stage"
+        ]
+      }
+    }
+  }
+}

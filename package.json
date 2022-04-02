@@ -11,6 +11,7 @@
     "@types/react": "^17.0.42",
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
+    "env-cmd": "^10.1.0",
     "react": "^18.0.0",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -20,9 +21,15 @@
   "scripts": {
     "lint": "eslint --fix --ext **/*.ts **/*.tsx",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "react-scripts build",
+    "build:dev": "env-cmd -f .env.development npm run build",
+    "build:stage": "env-cmd -f .env.stage npm run build",
+    "deploy:dev": "firebase deploy --only hosting:development",
+    "deploy:stage": "firebase deploy --only hosting:stage",
+    "build-and-deploy:dev": "npm run lint && npm run build:dev && npm run deploy:dev",
+    "build-and-deploy:stage": "npm run lint && npm run build:stage && npm run deploy:stage"
   },
   "eslintConfig": {
     "extends": [
